@@ -252,8 +252,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 516736b498c92ff4794d6d92e37d12d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TargetTexture: {fileID: 2800000, guid: 252ab05fe1c74be4f8c49fca4e2a1748, type: 3}
-  CheckTexture: {fileID: 8400000, guid: 5b9e2f6b6739d9349b3f4da2d7f6b2ab, type: 2}
+  MaskTexture: {fileID: 2800000, guid: 252ab05fe1c74be4f8c49fca4e2a1748, type: 3}
+  DrawnTexture: {fileID: 8400000, guid: 5b9e2f6b6739d9349b3f4da2d7f6b2ab, type: 2}
   Output: {fileID: 2118384787}
 --- !u!114 &186161366
 MonoBehaviour:

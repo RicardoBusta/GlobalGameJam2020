@@ -1,29 +1,48 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Camera))]
 public class CalculatePercentage : MonoBehaviour
 {
-    public Texture2D TargetTexture;
-    public RenderTexture CheckTexture;
+    public Texture2D MaskTexture;
+    public RenderTexture DrawnTexture;
 
     public Text Output;
 
     public void Update()
     {
-        var target = TargetTexture.GetPixels(0, 0, 256, 256);
-        var check = ToTexture2D(CheckTexture).GetPixels(0, 0, 256, 256);
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            Output.text = CalculateValue().ToString();
+        }
+    }
 
-        var value = 0;
+    private int CalculateValue()
+    {
+        var mask = MaskTexture.GetPixels(0, 0, 256, 256);
+        var drawn = ToTexture2D(DrawnTexture).GetPixels(0, 0, 256, 256);
+
+        var value = 0f;
+        var total = 0f;
 
         for (var x = 0; x < 256; x++)
         for (var y = 0; y < 256; y++)
         {
             var index = x + y * 256;
-            value += (int) check[index].r;
+            if (mask[index].r < 0.5f)
+            {
+                total++;
+                if (drawn[index].r < 0.5f)
+                {
+                    value++;
+                }
+            }
         }
 
-        Output.text = value.ToString();
+        var result = Mathf.RoundToInt(100f * value / total);
+
+        return result;
     }
 
     Texture2D ToTexture2D(RenderTexture rTex)
