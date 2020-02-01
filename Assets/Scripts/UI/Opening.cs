@@ -9,6 +9,6 @@ public class Opening : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        DOVirtual.DelayedCall(0.5f, () => { SceneManager.LoadScene("SlingshotScene"); });
+        DOVirtual.DelayedCall(0.5f, () => { SceneManager.LoadScene("Gameplay"); });
     }
 }
