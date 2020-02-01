@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5189401948739968978}
   - component: {fileID: 5911989932074525497}
   - component: {fileID: 4664139295848755515}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PatoAmmo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -278,6 +278,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pato
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 59ed814c6ef9a984caad05278e549c12,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59ed814c6ef9a984caad05278e549c12, type: 3}

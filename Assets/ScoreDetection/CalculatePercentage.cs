@@ -1,8 +1,6 @@
 ﻿using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Camera))]
 public class CalculatePercentage : MonoBehaviour
 {
     public Sprite MaskSprite;
@@ -35,7 +33,7 @@ public class CalculatePercentage : MonoBehaviour
             if (mask[index].a > 0.5f)
             {
                 total++;
-                if (drawn[index].r > 0.5f)
+                if (drawn[index].a > 0.5f)
                 {
                     value++;
                 }
