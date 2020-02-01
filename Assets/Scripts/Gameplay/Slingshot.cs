@@ -11,6 +11,7 @@ public sealed class Slingshot : MonoBehaviour
 
     private AmmoStock stock;
     private Ammo currentMunnition;
+    private GameplayUI ui;
 
     private void Reset()
     {
@@ -19,6 +20,7 @@ public sealed class Slingshot : MonoBehaviour
 
     private void Awake()
     {
+        ui = FindObjectOfType<GameplayUI>();
         stock = FindObjectOfType<AmmoStock>();
         GetNextAmmo();
     }
@@ -28,7 +30,8 @@ public sealed class Slingshot : MonoBehaviour
         if (!CanDrag()) return;
 
         dragPos = rubberBands.Dragging(dragPos);
-        currentMunnition?.Dragging(dragPos);
+        currentMunnition?.Dragging(dragPos, rubberBands.LaunchDirection);
+        ui?.SetStretching(rubberBands.Stretching);
     }
 
     public void ReleaseAmmo()

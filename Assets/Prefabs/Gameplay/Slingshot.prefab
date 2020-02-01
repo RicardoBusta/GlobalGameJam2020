@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13660dcba687c48ea86042db46e114d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxStretching: 2
+  maxStretching: 3.65
   leftLine: {fileID: 7224397919222737172}
   rightLine: {fileID: 4873503777997200205}
 --- !u!1 &4231262393509374225
@@ -175,8 +175,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.221942, y: 1.4660778, z: 1.221942}
-  m_Center: {x: 0, y: 3.233039, z: -0.022194147}
+  m_Size: {x: 1, y: 1.8000002, z: 1.3133297}
+  m_Center: {x: 7.740744e-16, y: 2.87, z: -0.1955293}
 --- !u!114 &617181875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -448,7 +448,7 @@ LineRenderer:
   m_SortingOrder: 0
   m_Positions:
   - {x: -4.85, y: 3.25, z: 0}
-  - {x: -4.25, y: 3.25, z: -2}
+  - {x: -4.25, y: 3.25, z: -3.65}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.5
@@ -585,7 +585,7 @@ LineRenderer:
   m_SortingOrder: 0
   m_Positions:
   - {x: -3.65, y: 3.25, z: 0}
-  - {x: -4.25, y: 3.25, z: -2}
+  - {x: -4.25, y: 3.25, z: -3.65}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.5
