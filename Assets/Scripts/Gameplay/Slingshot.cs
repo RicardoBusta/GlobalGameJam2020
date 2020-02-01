@@ -7,6 +7,7 @@ public sealed class Slingshot : MonoBehaviour
 {
     [Min(0f)] public float launchMultiplier = 4f;
 
+    [SerializeField] private SlingshotLaunchArc launcher;
     [SerializeField] private SlingshotRubberBands rubberBands;
 
     private AmmoStock stock;
@@ -15,6 +16,7 @@ public sealed class Slingshot : MonoBehaviour
 
     private void Reset()
     {
+        launcher = GetComponentInChildren<SlingshotLaunchArc>();
         rubberBands = GetComponentInChildren<SlingshotRubberBands>();
     }
 
@@ -30,13 +32,16 @@ public sealed class Slingshot : MonoBehaviour
         if (!CanDrag()) return;
 
         dragPos = rubberBands.Dragging(dragPos);
+
+        float launchForce = GetFireForce();
+        launcher.Draw(dragPos, rubberBands.LaunchDirection, launchForce);
         currentMunnition?.Dragging(dragPos, rubberBands.LaunchDirection);
         ui?.SetStretching(rubberBands.Stretching);
     }
 
     public void ReleaseAmmo()
     {
-        float launchForce = rubberBands.Stretching * launchMultiplier;
+        float launchForce = GetFireForce();
         FireCurrentAmmo(launchForce);
         GetNextAmmo();
     }
@@ -44,6 +49,11 @@ public sealed class Slingshot : MonoBehaviour
     public void FireCurrentAmmo(float force)
     {
         currentMunnition?.Throw(rubberBands.LaunchDirection, force);
+    }
+
+    private float GetFireForce()
+    {
+        return rubberBands.Stretching * launchMultiplier;
     }
 
     private bool CanDrag()

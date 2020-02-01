@@ -24,7 +24,7 @@ public sealed class Ammo : MonoBehaviour
     public void Throw(Vector3 direction, float force)
     {
         EnablePhysics();
-        rigidBody.AddForce(direction * force, ForceMode.Impulse);
+        rigidBody.velocity = direction * force;
     }
 
     public void Dragging(Vector3 position, Vector3 direction)

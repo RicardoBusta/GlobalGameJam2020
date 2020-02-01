@@ -28,6 +28,9 @@ public sealed class SlingshotRubberBands : MonoBehaviour
 	{
         leftLine = transform.Find("Left")?.GetComponent<LineRenderer>();
         rightLine = transform.Find("Right")?.GetComponent<LineRenderer>();
+
+        leftLine.positionCount = 2;
+        rightLine.positionCount = 2;
     }
 
     private void Awake()
