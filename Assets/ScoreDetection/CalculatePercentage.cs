@@ -47,7 +47,7 @@ public class CalculatePercentage : MonoBehaviour
 
     private Texture2D ToTexture2D(RenderTexture rTex)
     {
-        var tex = new Texture2D(ImageSide, ImageSide, TextureFormat.RGB24, false);
+        var tex = new Texture2D(ImageSide, ImageSide, TextureFormat.RGBA32, false);
         RenderTexture.active = rTex;
         tex.ReadPixels(new Rect(0, 0, rTex.width, rTex.height), 0, 0);
         tex.Apply();
