@@ -18,8 +18,10 @@
           <e p="UI" t="Include">
             <e p="GameplayUI.cs" t="Include" />
             <e p="LoadSceneButton.cs" t="Include" />
+            <e p="Opening.cs" t="Include" />
             <e p="OpenUrlButton.cs" t="Include" />
             <e p="ToggleModalButton.cs" t="Include" />
+            <e p="UIFloatField.cs" t="Include" />
           </e>
         </e>
         <e p="TextMesh Pro" t="Include">

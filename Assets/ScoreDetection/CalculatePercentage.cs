@@ -1,8 +1,6 @@
 ﻿using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Camera))]
 public class CalculatePercentage : MonoBehaviour
 {
     public Sprite MaskSprite;
@@ -20,7 +18,7 @@ public class CalculatePercentage : MonoBehaviour
         }
     }
 
-    private int CalculateValue()
+    public int CalculateValue()
     {
         var mask = MaskSprite.texture.GetPixels(0, 0, ImageSide, ImageSide);
         var drawn = ToTexture2D(DrawnTexture).GetPixels(0, 0, ImageSide, ImageSide);
@@ -35,7 +33,7 @@ public class CalculatePercentage : MonoBehaviour
             if (mask[index].a > 0.5f)
             {
                 total++;
-                if (drawn[index].r > 0.5f)
+                if (drawn[index].a > 0.5f)
                 {
                     value++;
                 }
@@ -49,7 +47,7 @@ public class CalculatePercentage : MonoBehaviour
 
     private Texture2D ToTexture2D(RenderTexture rTex)
     {
-        var tex = new Texture2D(ImageSide, ImageSide, TextureFormat.RGB24, false);
+        var tex = new Texture2D(ImageSide, ImageSide, TextureFormat.RGBA32, false);
         RenderTexture.active = rTex;
         tex.ReadPixels(new Rect(0, 0, rTex.width, rTex.height), 0, 0);
         tex.Apply();

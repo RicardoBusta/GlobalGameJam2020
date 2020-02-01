@@ -1,24 +1,25 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.Serialization;
 
 
 [DisallowMultipleComponent]
 public sealed class AmmoStock : MonoBehaviour 
 {
     [Min(1)]
-    public int inicialCapacity = 20;
+    public int initialCapacity = 20;
 
     private Stack<Ammo> stack;
 
 	private void Awake () 
 	{
+        stack = new Stack<Ammo>(initialCapacity);
         LoadAmmo();
 	}
 
 
     private void LoadAmmo()
     {
-        stack = new Stack<Ammo>(inicialCapacity);
 
         foreach (Ammo ammo in GetComponentsInChildren<Ammo>())
         {
@@ -34,6 +35,7 @@ public sealed class AmmoStock : MonoBehaviour
 
     public bool HasAmmo()
     {
+        if (stack == null) return false;
         return stack.Count > 0;
     }
 }
