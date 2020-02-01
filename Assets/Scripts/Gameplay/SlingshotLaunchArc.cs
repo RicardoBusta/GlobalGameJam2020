@@ -5,9 +5,9 @@
 [RequireComponent(typeof(LineRenderer))]
 public sealed class SlingshotLaunchArc : MonoBehaviour 
 {
-    [Min(0)] public int resolution = 10;
     [SerializeField] private LineRenderer line;
 
+    private const int resolution = 10;
     private Vector3[] positions;
 
     private void Reset()
@@ -18,6 +18,7 @@ public sealed class SlingshotLaunchArc : MonoBehaviour
     private void Awake () 
 	{
         positions = new Vector3[resolution];
+        line.positionCount = 0;
     }
 
     public void Draw(Vector3 dragPos, Vector3 dragDirection, float force)
@@ -25,7 +26,6 @@ public sealed class SlingshotLaunchArc : MonoBehaviour
         float gravity = Mathf.Abs(Physics.gravity.y);
         float angle = Vector3.SignedAngle(dragDirection, Vector3.right, Vector3.back) * Mathf.Deg2Rad;
 
-        positions = new Vector3[resolution];
 
         for (int i = 0; i < positions.Length; i++)
         {
@@ -38,6 +38,7 @@ public sealed class SlingshotLaunchArc : MonoBehaviour
             positions[i] = dragPos + offset;
         }
 
+        line.useWorldSpace = true;
         line.positionCount = positions.Length;
         line.SetPositions(positions);
     }

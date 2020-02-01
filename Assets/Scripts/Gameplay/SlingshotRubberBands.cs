@@ -12,7 +12,7 @@ public sealed class SlingshotRubberBands : MonoBehaviour
 
     public float Stretching { get; private set; }
     public Vector3 LaunchDirection { get; private set; }
-    public Vector3 LauchPosition
+    public Vector3 LaunchPosition
     {
         get
         {
@@ -42,23 +42,23 @@ public sealed class SlingshotRubberBands : MonoBehaviour
     {
         if(leftLine && rightLine)
         {
-            Vector3 maxStretchingPos = LauchPosition - transform.forward * maxStretching;
+            Vector3 maxStretchingPos = LaunchPosition - transform.forward * maxStretching;
             UpdateLinePosition(maxStretchingPos);
         }
     }
 
     public Vector3 Dragging(Vector3 dragPos) 
 	{
-        Vector3 lauchPosition = LauchPosition;
-        dragPos.z = lauchPosition.z;
+        Vector3 launchPosition = LaunchPosition;
+        dragPos.z = launchPosition.z;
 
-        LaunchDirection = (lauchPosition - dragPos).normalized;
-        Stretching = Vector3.Distance(lauchPosition, dragPos);
+        LaunchDirection = (launchPosition - dragPos).normalized;
+        Stretching = Vector3.Distance(launchPosition, dragPos);
 
         if (Stretching > maxStretching)
         {
             Stretching = maxStretching;
-            dragPos = LauchPosition - LaunchDirection * maxStretching;
+            dragPos = LaunchPosition - LaunchDirection * maxStretching;
         }       
 
         UpdateLinePosition(dragPos);

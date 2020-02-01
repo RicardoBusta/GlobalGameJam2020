@@ -18,7 +18,6 @@ public sealed class Ammo : MonoBehaviour
     {
         trail = GetComponent<TrailRenderer>();
         rigidBody = GetComponent<Rigidbody>();
-        rigidBody.constraints = RigidbodyConstraints.FreezePositionZ;
     }
 
     private void Awake()
@@ -28,6 +27,7 @@ public sealed class Ammo : MonoBehaviour
 
     public void Throw(Vector3 direction, float force)
     {
+        rigidBody.constraints = RigidbodyConstraints.FreezePositionZ;
         EnablePhysics();
         rigidBody.velocity = direction * force;
     }

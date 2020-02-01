@@ -10,6 +10,7 @@
             <e p="AmmoStock.cs" t="Include" />
             <e p="PlayerSlingshotInput.cs" t="Include" />
             <e p="ScoreCalculator.cs" t="Include" />
+            <e p="ScrollMaterialOffset.cs" t="Include" />
             <e p="Slingshot.cs" t="Include" />
             <e p="SlingshotLaunchArc.cs" t="Include" />
             <e p="SlingshotRubberBands.cs" t="Include" />
