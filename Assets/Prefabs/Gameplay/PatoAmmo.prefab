@@ -170,6 +170,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidBody: {fileID: 5189401948739968978}
   trail: {fileID: 5911989932074525497}
+  SticksTo:
+    serializedVersion: 2
+    m_Bits: 768
 --- !u!135 &3030199751218186829
 SphereCollider:
   m_ObjectHideFlags: 0
