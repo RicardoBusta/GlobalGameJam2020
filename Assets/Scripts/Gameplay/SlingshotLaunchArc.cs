@@ -18,6 +18,7 @@ public sealed class SlingshotLaunchArc : MonoBehaviour
     private void Awake () 
 	{
         positions = new Vector3[resolution];
+        line.positionCount = 0;
     }
 
     public void Draw(Vector3 dragPos, Vector3 dragDirection, float force)
@@ -38,6 +39,7 @@ public sealed class SlingshotLaunchArc : MonoBehaviour
             positions[i] = dragPos + offset;
         }
 
+        line.useWorldSpace = true;
         line.positionCount = positions.Length;
         line.SetPositions(positions);
     }
