@@ -2,62 +2,85 @@
 
 
 [DisallowMultipleComponent]
+[RequireComponent(typeof(BoxCollider))]
 public sealed class Slingshot : MonoBehaviour 
 {
-    public float height = 1f;
-    //public float radius = 1.8f;
-    public float addicionalLaunchForce = 4f;
+    [Min(0f)] public float maxStretching = .5f;
+    [Min(0f)] public float launchMultiplier = 4f;
 
-    public Ammo currentMunnition;
+    [SerializeField] private SlingshotRubberBands rubberBands;
 
-    private Vector3 launchDirection;
-    private float launchDistance;
+    private AmmoStock stock;
+    private Ammo currentMunnition;
+
+    private void Reset()
+    {
+        rubberBands = GetComponentInChildren<SlingshotRubberBands>();
+    }
 
     private void Awake()
     {
-        currentMunnition = FindObjectOfType<Ammo>();
+        stock = FindObjectOfType<AmmoStock>();
+        GetNextAmmo();
     }
 
-    public Vector3 HeightPosition
+    private void OnDrawGizmosSelected()
     {
-        get { return transform.position + Vector3.up * height; }
+        if (rubberBands)
+        {
+            Vector3 origin = rubberBands.LauchPosition;
+            Gizmos.color = Color.red;
+            Gizmos.DrawLine(origin, origin - transform.forward * maxStretching);
+        }
     }
 
-    private void OnDrawGizmos()
+    public void DragAmmo(Vector3 dragPos)
     {
-        Debug.DrawLine(transform.position, HeightPosition, Color.red);
+        if (!CanDrag()) return;
+
+        dragPos = ClampMaxArea(dragPos);
+
+        rubberBands?.Dragging(dragPos);
+        currentMunnition?.Dragging(dragPos);
     }
 
-
-    public void DragMonition(Vector3 input)
+    public void ReleaseAmmo()
     {
-        input.z = transform.position.z;
-
-        if (!CanDrag(input)) return;
-
-        launchDistance = Vector3.Distance(HeightPosition, input);
-        launchDirection = (HeightPosition - input).normalized;
-
-
-        Debug.DrawLine(input, input + launchDirection);
-
-
-        currentMunnition.Draging(input);
+        float launchForce = rubberBands.Stretching * launchMultiplier;
+        FireCurrentAmmo(launchForce);
+        GetNextAmmo();
     }
 
-    public void ReleaseMonition()
+    public void FireCurrentAmmo(float force)
     {
-        float launchForce = launchDistance * addicionalLaunchForce;
-        currentMunnition.Fire(launchDirection, launchForce);
+        currentMunnition?.Throw(rubberBands.LaunchDirection, force);
     }
 
-    private bool CanDrag(Vector3 input)
+    private bool CanDrag()
     {
-        return true;
+        return currentMunnition != null;
     }
 
-    private void GetAmmo()
+    private Vector3 ClampMaxArea(Vector3 position)
     {
+        Vector3 direction = (position - rubberBands.LauchPosition);
+        float distance = direction.magnitude;
 
+        if(distance > maxStretching)
+        {
+            position = rubberBands.LauchPosition + direction.normalized * maxStretching;
+        }
+
+        return position;
+    }
+
+    private bool InsideSphere(Vector3 center, float radius, Vector3 position)
+    {
+        return Vector3.Distance(position, center) < radius;
+    }
+
+    private void GetNextAmmo()
+    {
+        currentMunnition = stock?.NextAmmo();
     }
 }

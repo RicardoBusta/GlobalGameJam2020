@@ -14,13 +14,13 @@ public sealed class Ammo : MonoBehaviour
         rigidBody.constraints = RigidbodyConstraints.FreezePositionZ;
     }
 
-    public void Fire(Vector3 direction, float force)
+    public void Throw(Vector3 direction, float force)
     {
         rigidBody.isKinematic = false;
         rigidBody.AddForce(direction * force, ForceMode.Impulse);
     }
 
-    public void Draging(Vector3 position)
+    public void Dragging(Vector3 position)
     {
         rigidBody.isKinematic = true;
         rigidBody.position = position;

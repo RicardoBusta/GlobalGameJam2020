@@ -24,11 +24,11 @@ public sealed class PlayerSlingshotInput : MonoBehaviour
         mousePos.z = Mathf.Abs(levelCamera.transform.position.z);
         Vector3 mouseWorldPos = levelCamera.ScreenToWorldPoint(mousePos);
 
-        slingshot.DragMonition(mouseWorldPos);
+        slingshot.DragAmmo(mouseWorldPos);
     }
 
     private void OnMouseUp()
     {
-        slingshot.ReleaseMonition();
+        slingshot.ReleaseAmmo();
     }
 }
