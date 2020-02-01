@@ -5,7 +5,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Camera))]
 public class CalculatePercentage : MonoBehaviour
 {
-    public Texture2D MaskTexture;
+    public Sprite MaskSprite;
     public RenderTexture DrawnTexture;
 
     public Text Output;
@@ -22,7 +22,7 @@ public class CalculatePercentage : MonoBehaviour
 
     private int CalculateValue()
     {
-        var mask = MaskTexture.GetPixels(0, 0, ImageSide, ImageSide);
+        var mask = MaskSprite.texture.GetPixels(0, 0, ImageSide, ImageSide);
         var drawn = ToTexture2D(DrawnTexture).GetPixels(0, 0, ImageSide, ImageSide);
 
         var value = 0f;
@@ -32,7 +32,7 @@ public class CalculatePercentage : MonoBehaviour
         for (var y = 0; y < ImageSide; y++)
         {
             var index = x + y * ImageSide;
-            if (mask[index].r > 0.5f)
+            if (mask[index].a > 0.5f)
             {
                 total++;
                 if (drawn[index].r > 0.5f)
