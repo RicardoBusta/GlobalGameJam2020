@@ -1,24 +1,22 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 
-public class CalculatePercentage : MonoBehaviour
+public class ScoreCalculator : MonoBehaviour
 {
     public Sprite MaskSprite;
     public RenderTexture DrawnTexture;
 
-    public Text Output;
+    public TextMeshProUGUI Output;
 
     private const int ImageSide = 256;
-
-    public void Update()
+    
+    public void UpdateValue()
     {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            Output.text = CalculateValue().ToString();
-        }
+        Output.text = CalculateValue().ToString();
     }
 
-    public int CalculateValue()
+    private int CalculateValue()
     {
         var mask = MaskSprite.texture.GetPixels(0, 0, ImageSide, ImageSide);
         var drawn = ToTexture2D(DrawnTexture).GetPixels(0, 0, ImageSide, ImageSide);
