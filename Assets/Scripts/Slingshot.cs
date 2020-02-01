@@ -5,11 +5,18 @@
 public sealed class Slingshot : MonoBehaviour 
 {
     public float height = 1f;
-    public float radius = 1.8f;
-    public Transform munnition;
+    //public float radius = 1.8f;
+    public float addicionalLaunchForce = 4f;
+
+    public Ammo currentMunnition;
 
     private Vector3 launchDirection;
     private float launchDistance;
+
+    private void Awake()
+    {
+        currentMunnition = FindObjectOfType<Ammo>();
+    }
 
     public Vector3 HeightPosition
     {
@@ -22,35 +29,35 @@ public sealed class Slingshot : MonoBehaviour
     }
 
 
-    private void OnMouseDrag()
+    public void DragMonition(Vector3 input)
     {
-        if (munnition) DragMonition();
+        input.z = transform.position.z;
+
+        if (!CanDrag(input)) return;
+
+        launchDistance = Vector3.Distance(HeightPosition, input);
+        launchDirection = (HeightPosition - input).normalized;
+
+
+        Debug.DrawLine(input, input + launchDirection);
+
+
+        currentMunnition.Draging(input);
     }
 
-    private void OnMouseUp()
+    public void ReleaseMonition()
     {
-        if (munnition) ReleaseMonition();
+        float launchForce = launchDistance * addicionalLaunchForce;
+        currentMunnition.Fire(launchDirection, launchForce);
     }
 
-    private void DragMonition()
+    private bool CanDrag(Vector3 input)
     {
-        Vector3 mousePos = Input.mousePosition;
-        mousePos.z = Mathf.Abs(Camera.main.transform.position.z);
-        Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(mousePos);
-
-        launchDistance = Vector3.Distance(mouseWorldPos, HeightPosition);
-        launchDirection = (HeightPosition - mouseWorldPos).normalized;
-
-        Debug.DrawLine(mouseWorldPos, mouseWorldPos + launchDirection);
-
-       
-        munnition.position = mouseWorldPos;
+        return true;
     }
 
-    private void ReleaseMonition()
+    private void GetAmmo()
     {
-        Rigidbody rigidBody = munnition.gameObject.AddComponent<Rigidbody>();
 
-        rigidBody.AddForce(launchDirection * launchDistance * 4, ForceMode.Impulse);
     }
 }
