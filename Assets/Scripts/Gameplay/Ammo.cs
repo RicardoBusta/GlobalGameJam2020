@@ -12,6 +12,8 @@ public sealed class Ammo : MonoBehaviour
 
     public LayerMask SticksTo;
 
+    public event Action StickEvent;
+
     private void Reset()
     {
         trail = GetComponent<TrailRenderer>();
@@ -56,6 +58,7 @@ public sealed class Ammo : MonoBehaviour
         Debug.Log($"other: {otherLayer} mask: {SticksTo.value}");
         if (SticksTo.value == (SticksTo.value | (1 << otherLayer)))
         {
+            StickEvent?.Invoke();
             DisablePhysics();
         }
     }
