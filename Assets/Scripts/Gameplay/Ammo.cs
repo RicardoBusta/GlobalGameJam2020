@@ -20,9 +20,10 @@ public sealed class Ammo : MonoBehaviour
         rigidBody.AddForce(direction * force, ForceMode.Impulse);
     }
 
-    public void Dragging(Vector3 position)
+    public void Dragging(Vector3 position, Vector3 direction)
     {
         rigidBody.isKinematic = true;
         rigidBody.position = position;
+        rigidBody.rotation = Quaternion.LookRotation(direction);
     }
 }

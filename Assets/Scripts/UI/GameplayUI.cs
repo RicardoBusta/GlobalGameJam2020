@@ -1,28 +1,18 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 
 [DisallowMultipleComponent]
 public sealed class GameplayUI : MonoBehaviour 
 {
-    public Text stretching;
-    public Text score;
+    [SerializeField] private UIFloatField stretching;
+    [SerializeField] private UIFloatField score;
 
-    public string Stretching
+    public void SetStretching(float value)
     {
-        get { return stretching.text; }
-        set
-        {
-            if (!stretching.text.Equals(value)) stretching.text = value;
-        }
+        stretching.Value = value;
     }
 
-    public string Score
+    public void SetScore(float value)
     {
-        get { return score.text; }
-        set
-        {
-            if (!score.text.Equals(value)) stretching.text = value;
-        }
+        stretching.Value = value;
     }
-
 }

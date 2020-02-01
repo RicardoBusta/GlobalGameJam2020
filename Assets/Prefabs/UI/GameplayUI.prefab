@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 263730182}
   - component: {fileID: 263730184}
   - component: {fileID: 263730183}
+  - component: {fileID: 263730185}
   m_Layer: 5
   m_Name: ScoreText
   m_TagString: Untagged
@@ -78,6 +79,19 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'Score:'
+--- !u!114 &263730185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263730181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0dffe79622084226a5f81d5436f244c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  valueText: {fileID: 1850288781}
 --- !u!1 &1850288779
 GameObject:
   m_ObjectHideFlags: 0
@@ -166,6 +180,7 @@ GameObject:
   - component: {fileID: 299629153356886523}
   - component: {fileID: 299629153356886517}
   - component: {fileID: 299629153356886516}
+  - component: {fileID: 1085415914}
   m_Layer: 5
   m_Name: StretchingText
   m_TagString: Untagged
@@ -233,6 +248,19 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'Stretching:'
+--- !u!114 &1085415914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299629153356886522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0dffe79622084226a5f81d5436f244c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  valueText: {fileID: 299629154121889607}
 --- !u!1 &299629154121889605
 GameObject:
   m_ObjectHideFlags: 0
@@ -319,6 +347,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4933071495146983127}
+  - component: {fileID: 1464478140}
   m_Layer: 5
   m_Name: GameplayUI
   m_TagString: Untagged
@@ -347,3 +376,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1464478140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2951185100079558367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f8fad58ce352421581e802787893124, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stretching: {fileID: 1085415914}
+  score: {fileID: 263730185}
