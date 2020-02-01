@@ -35,7 +35,6 @@ public sealed class AmmoStock : MonoBehaviour
 
     public bool HasAmmo()
     {
-        if (stack == null) return false;
         return stack.Count > 0;
     }
 }

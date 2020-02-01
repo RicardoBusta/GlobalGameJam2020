@@ -6,6 +6,7 @@
 public sealed class Slingshot : MonoBehaviour 
 {
     [Min(0f)] public float launchMultiplier = 4f;
+    public Transform paradinha;
 
     [SerializeField] private SlingshotLaunchArc launcher;
     [SerializeField] private SlingshotRubberBands rubberBands;
@@ -35,6 +36,7 @@ public sealed class Slingshot : MonoBehaviour
 
         float launchForce = GetFireForce();
         launcher.Draw(dragPos, rubberBands.LaunchDirection, launchForce);
+        paradinha.position = dragPos;
         currentMunnition?.Dragging(dragPos, rubberBands.LaunchDirection);
         ui?.SetStretching(rubberBands.Stretching);
     }
