@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13660dcba687c48ea86042db46e114d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxStretching: 2
   leftLine: {fileID: 7224397919222737172}
   rightLine: {fileID: 4873503777997200205}
 --- !u!1 &4231262393509374225
@@ -188,8 +189,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e70f0a0dcc9447fe82341aa6f0f4d8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minStretching: 1
-  maxStretching: 2.84
   launchMultiplier: 4
   rubberBands: {fileID: 1825185056356168238}
 --- !u!114 &1560754658
@@ -448,8 +447,8 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Positions:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0.5, y: -1, z: -1}
+  - {x: -4.85, y: 3.25, z: 0}
+  - {x: -4.25, y: 3.25, z: -2}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.5
@@ -512,7 +511,7 @@ LineRenderer:
     textureMode: 0
     shadowBias: 0.5
     generateLightingData: 0
-  m_UseWorldSpace: 0
+  m_UseWorldSpace: 1
   m_Loop: 0
 --- !u!1 &5006494316884983000
 GameObject:
@@ -585,8 +584,8 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Positions:
-  - {x: 0, y: 0, z: 0}
-  - {x: -0.5, y: -1, z: -1}
+  - {x: -3.65, y: 3.25, z: 0}
+  - {x: -4.25, y: 3.25, z: -2}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.5
@@ -649,5 +648,5 @@ LineRenderer:
     textureMode: 0
     shadowBias: 0.5
     generateLightingData: 0
-  m_UseWorldSpace: 0
+  m_UseWorldSpace: 1
   m_Loop: 0
