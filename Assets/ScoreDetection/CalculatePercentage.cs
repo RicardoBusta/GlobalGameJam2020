@@ -18,7 +18,7 @@ public class CalculatePercentage : MonoBehaviour
         }
     }
 
-    private int CalculateValue()
+    public int CalculateValue()
     {
         var mask = MaskSprite.texture.GetPixels(0, 0, ImageSide, ImageSide);
         var drawn = ToTexture2D(DrawnTexture).GetPixels(0, 0, ImageSide, ImageSide);
