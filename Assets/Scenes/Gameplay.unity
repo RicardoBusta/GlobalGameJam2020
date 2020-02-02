@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -180,6 +180,7 @@ MonoBehaviour:
   sprites:
   - {fileID: 21300000, guid: 3d398d1b2a46041afa39429c16852960, type: 3}
   - {fileID: 21300000, guid: ed73bea507cb24150bb3c812d7d68f1b, type: 3}
+  - {fileID: 21300000, guid: 7b489af97bab84bc7917122f4ce4ef78, type: 3}
 --- !u!1001 &133058072
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -435,8 +436,8 @@ MonoBehaviour:
   Semaphor: {fileID: 78415455}
   TimeRemaining: {fileID: 1184854592}
   TimeSlider: {fileID: 879582878}
-  FinishText: {fileID: 0}
-  ScoreText: {fileID: 0}
+  FinishText: {fileID: 299629154435993632}
+  ScoreText: {fileID: 299629154435993631}
   playerInput: {fileID: 1194148650}
   GameOverScreen: {fileID: 1687805344}
   PieGraphic: {fileID: 40646266}
@@ -1753,7 +1754,7 @@ PrefabInstance:
     - target: {fileID: 1551786360738317629, guid: 643e5e87cdb6b47ab9d10f07fa6f9da4,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000068665
+      value: -0.00006866455
       objectReference: {fileID: 0}
     - target: {fileID: 1551786360738317629, guid: 643e5e87cdb6b47ab9d10f07fa6f9da4,
         type: 3}
@@ -2471,6 +2472,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 628360170525272470, guid: 7e26fd4eaed9544429bacc8bd6251183,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.3599997
+      objectReference: {fileID: 0}
+    - target: {fileID: 628360170525272470, guid: 7e26fd4eaed9544429bacc8bd6251183,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.5499997
+      objectReference: {fileID: 0}
     - target: {fileID: 6715139584576056088, guid: 7e26fd4eaed9544429bacc8bd6251183,
         type: 3}
       propertyPath: m_Name
@@ -2530,6 +2541,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7557785119870121099, guid: 7e26fd4eaed9544429bacc8bd6251183,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 7557785119870121099, guid: 7e26fd4eaed9544429bacc8bd6251183,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.46
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e26fd4eaed9544429bacc8bd6251183, type: 3}
