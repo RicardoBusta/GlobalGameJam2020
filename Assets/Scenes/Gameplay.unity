@@ -1301,11 +1301,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1360848573}
     m_Modifications:
-    - target: {fileID: 2421088032847063967, guid: 643e5e87cdb6b47ab9d10f07fa6f9da4,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2951185100079558367, guid: 643e5e87cdb6b47ab9d10f07fa6f9da4,
         type: 3}
       propertyPath: m_Name
@@ -1425,11 +1420,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7372115445828892790, guid: 643e5e87cdb6b47ab9d10f07fa6f9da4,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 0.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 643e5e87cdb6b47ab9d10f07fa6f9da4, type: 3}
