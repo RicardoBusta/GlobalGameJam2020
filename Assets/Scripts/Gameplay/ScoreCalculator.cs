@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,13 +11,8 @@ public class ScoreCalculator : MonoBehaviour
     private const int ImageSide = 256;
 
     public int FinalScore;
-    
-    public void UpdateValue()
-    {
-        FinalScore = CalculateValue();
-    }
 
-    private int CalculateValue()
+    public int CalculateValue()
     {
         var mask = MaskSprite.texture.GetPixels(0, 0, ImageSide, ImageSide);
         var drawn = ToTexture2D(DrawnTexture).GetPixels(0, 0, ImageSide, ImageSide);
@@ -40,6 +36,8 @@ public class ScoreCalculator : MonoBehaviour
 
         var result = Mathf.RoundToInt(100f * value / total);
 
+        FinalScore = result;
+
         return result;
     }
 
@@ -50,5 +48,13 @@ public class ScoreCalculator : MonoBehaviour
         tex.ReadPixels(new Rect(0, 0, rTex.width, rTex.height), 0, 0);
         tex.Apply();
         return tex;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            Debug.Log(CalculateValue());
+        }
     }
 }
