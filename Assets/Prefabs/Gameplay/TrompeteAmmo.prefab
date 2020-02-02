@@ -164,7 +164,7 @@ MonoBehaviour:
   audioSource: {fileID: 1704980347370434983}
   SticksTo:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 768
 --- !u!136 &1652970264693256714
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -179,19 +179,6 @@ CapsuleCollider:
   m_Height: 1.2099999
   m_Direction: 2
   m_Center: {x: 0.019995976, y: 0.000000019868214, z: -0.0672071}
---- !u!65 &7070126282078151013
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8435234175044732495}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.16231786, y: 0.0881848, z: 0.41470757}
-  m_Center: {x: -0.108805016, y: -0.00675412, z: 0.035558224}
 --- !u!135 &5025251713894440155
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -205,6 +192,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.12227577
   m_Center: {x: 0.017917305, y: -0.012907246, z: -0.5707774}
+--- !u!65 &7070126282078151013
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8435234175044732495}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.16231786, y: 0.0881848, z: 0.41470757}
+  m_Center: {x: -0.108805016, y: -0.00675412, z: 0.035558224}
 --- !u!1001 &445317448712429382
 PrefabInstance:
   m_ObjectHideFlags: 0
