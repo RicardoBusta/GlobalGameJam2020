@@ -6,8 +6,6 @@ using UnityEngine.Serialization;
 [DisallowMultipleComponent]
 public sealed class AmmoStock : MonoBehaviour
 {
-    public ScoreCalculator Score;
-
     private Stack<Ammo> stack;
 
     private void Awake()
@@ -22,7 +20,6 @@ public sealed class AmmoStock : MonoBehaviour
     {
         foreach (Ammo ammo in GetComponentsInChildren<Ammo>())
         {
-            ammo.StickEvent += Score.UpdateValue;
             stack.Push(ammo);
         }
     }

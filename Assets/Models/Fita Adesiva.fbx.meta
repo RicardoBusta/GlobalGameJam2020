@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 81f9079004bcd48cb981e669aebeb23b
+guid: 1f3d7289eb3734165bde1a16ffa8c6ca
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable: []
@@ -12,8 +12,13 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: vaso
-    second: {fileID: 2100000, guid: 0dbd07acb2e514441b5da218823aab72, type: 2}
+      name: durex
+    second: {fileID: 2100000, guid: 5838f041a2d544259b17d8703879b1b4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: papelao
+    second: {fileID: 2100000, guid: e5a74d4e679a54382a47e811b535e53a, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
