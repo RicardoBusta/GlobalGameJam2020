@@ -151,6 +151,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &105430457 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6805727658082901581, guid: 75df8a827d2a6ce45a51e18fdd518fad,
+    type: 3}
+  m_PrefabInstance: {fileID: 6805727658397641705}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &105430459 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 6805727658082901580, guid: 75df8a827d2a6ce45a51e18fdd518fad,
+    type: 3}
+  m_PrefabInstance: {fileID: 6805727658397641705}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &105430460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 105430457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 209d4a7d42c3f4fe28f8b05d13e3b185, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  calculator: {fileID: 453194370}
+  spriteRenderer: {fileID: 105430459}
+  sprites:
+  - {fileID: 21300000, guid: 3d398d1b2a46041afa39429c16852960, type: 3}
+  - {fileID: 21300000, guid: ed73bea507cb24150bb3c812d7d68f1b, type: 3}
 --- !u!1001 &133058072
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2091,7 +2120,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: ed73bea507cb24150bb3c812d7d68f1b,
+      objectReference: {fileID: 21300000, guid: 252ab05fe1c74be4f8c49fca4e2a1748,
         type: 3}
     - target: {fileID: 6805727658082901583, guid: 75df8a827d2a6ce45a51e18fdd518fad,
         type: 3}
