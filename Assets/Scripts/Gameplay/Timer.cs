@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Collections;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Gameplay
 {
@@ -16,6 +16,10 @@ namespace Gameplay
 
         public TextMeshProUGUI CountDown;
         public TextMeshProUGUI TimeRemaining;
+
+        public Slider TimeSlider;
+        public TextMeshProUGUI FinishText;
+        public TextMeshProUGUI ScoreText;
 
         private int previousTime;
 
