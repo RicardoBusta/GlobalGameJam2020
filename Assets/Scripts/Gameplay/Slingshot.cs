@@ -6,6 +6,7 @@
 public sealed class Slingshot : MonoBehaviour 
 {
     [Min(0f)] public float launchMultiplier = 4f;
+    public Transform paradinha;
 
     public bool enabled;
 
@@ -32,11 +33,12 @@ public sealed class Slingshot : MonoBehaviour
     public void DragAmmo(Vector3 dragPos)
     {
         if (!CanDrag()) return;
-
+        
         dragPos = rubberBands.Dragging(dragPos);
 
         float launchForce = GetFireForce();
         launcher.Draw(dragPos, rubberBands.LaunchDirection, launchForce);
+        paradinha.position = dragPos;
         currentMunnition?.Dragging(dragPos, rubberBands.LaunchDirection);
         ui?.SetStretching(rubberBands.Stretching);
     }

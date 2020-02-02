@@ -6,15 +6,14 @@ using UnityEngine.Serialization;
 [DisallowMultipleComponent]
 public sealed class AmmoStock : MonoBehaviour
 {
-    [Min(1)] public int initialCapacity = 20;
-
     public ScoreCalculator Score;
 
     private Stack<Ammo> stack;
 
     private void Awake()
     {
-        stack = new Stack<Ammo>(initialCapacity);
+        stack = new Stack<Ammo>();
+        var ammoList = GetComponentsInChildren<Ammo>();
         LoadAmmo();
     }
 

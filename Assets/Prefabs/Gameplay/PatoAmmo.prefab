@@ -184,8 +184,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.10012576
-  m_Center: {x: 0.024756312, y: -0.000025570393, z: 0.079340324}
+  m_Radius: 0.07748769
+  m_Center: {x: 0.03607541, y: -0.000025574036, z: 0.068021335}
 --- !u!136 &3693584213084898800
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -196,10 +196,10 @@ CapsuleCollider:
   m_Material: {fileID: 13400000, guid: 90ac013937af541c3a558384e60d5186, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.10683468
-  m_Height: 0.39797297
+  m_Radius: 0.072006956
+  m_Height: 0.33876583
   m_Direction: 0
-  m_Center: {x: -0.019594386, y: -0.000025510788, z: -0.078363925}
+  m_Center: {x: -0.01611173, y: -0.000025510135, z: -0.073139794}
 --- !u!1001 &2949566838881615878
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -275,6 +275,11 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 59ed814c6ef9a984caad05278e549c12,
         type: 3}
       propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: 59ed814c6ef9a984caad05278e549c12,
+        type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: 59ed814c6ef9a984caad05278e549c12,
