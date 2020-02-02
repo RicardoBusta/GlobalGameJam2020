@@ -25,10 +25,20 @@ namespace Gameplay
 
         public PlayerSlingshotInput playerInput;
 
+        public Canvas GameOverScreen;
+
         private int previousTime;
+
+        public CanvasGroup PieGraphic;
+        public Image PieFill;
+        public TextMeshProUGUI ScorePercentage;
+
+        public ScoreCalculator Score;
 
         private void Start()
         {
+            PieGraphic.gameObject.SetActive(false);
+            GameOverScreen.gameObject.SetActive(false);
             FinishText.gameObject.SetActive(false);
             ScoreText.gameObject.SetActive(false);
             TimeSlider.maxValue = TotalTime;
@@ -71,9 +81,8 @@ namespace Gameplay
 
             if (timeRemaining <= 0)
             {
-                timerOn = false;
                 timeRemaining = 0;
-                playerInput.enabled = false;
+                GameOver();
             }
 
             if (timeRemaining < previousTime)
@@ -82,6 +91,30 @@ namespace Gameplay
                 TimeRemaining.text = timeRemaining.ToString();
                 TimeSlider.value = timeRemaining;
             }
+        }
+
+        private void GameOver()
+        {
+            timerOn = false;
+            playerInput.enabled = false;
+
+            var gameOverSequence = DOTween.Sequence();
+            gameOverSequence.AppendCallback(() =>
+            {
+                PieGraphic.gameObject.SetActive(true);
+                PieGraphic.alpha = 0;
+                PieFill.fillAmount = 0;
+                ScorePercentage.text = "0%";
+            });
+            gameOverSequence.Append(PieGraphic.DOFade(1, 1));
+            gameOverSequence.Append(DOVirtual.Float(0f, Score.FinalScore, 2f, v =>
+            {
+                var i = Mathf.RoundToInt(v);
+                PieFill.fillAmount = i/100f;
+                ScorePercentage.text = $"{i}%";
+            }));
+            gameOverSequence.AppendCallback(() => { GameOverScreen.gameObject.SetActive(true); });
+            gameOverSequence.Play();
         }
     }
 }
