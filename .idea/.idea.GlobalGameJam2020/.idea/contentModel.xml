@@ -18,6 +18,7 @@
             <e p="Slingshot.cs" t="Include" />
             <e p="SlingshotLaunchArc.cs" t="Include" />
             <e p="SlingshotRubberBands.cs" t="Include" />
+            <e p="SortingSprite.cs" t="Include" />
             <e p="Timer.cs" t="Include" />
           </e>
           <e p="UI" t="Include">

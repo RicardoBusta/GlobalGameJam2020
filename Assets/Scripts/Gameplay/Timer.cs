@@ -105,6 +105,7 @@ namespace Gameplay
                 PieGraphic.alpha = 0;
                 PieFill.fillAmount = 0;
                 ScorePercentage.text = "0%";
+                Score.UpdateValue();
             });
             gameOverSequence.Append(PieGraphic.DOFade(1, 1));
             gameOverSequence.Append(DOVirtual.Float(0f, Score.FinalScore, 2f, v =>
