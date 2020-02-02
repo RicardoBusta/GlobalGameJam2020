@@ -7,13 +7,13 @@ public class ScoreCalculator : MonoBehaviour
     public Sprite MaskSprite;
     public RenderTexture DrawnTexture;
 
-    public TextMeshProUGUI Output;
-
     private const int ImageSide = 256;
+
+    public int FinalScore;
     
     public void UpdateValue()
     {
-        Output.text = CalculateValue().ToString();
+        FinalScore = CalculateValue();
     }
 
     private int CalculateValue()
