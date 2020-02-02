@@ -20,8 +20,8 @@ namespace Gameplay
         public TextMeshProUGUI TimeRemaining;
 
         public Slider TimeSlider;
-        public TextMeshProUGUI FinishText;
-        public TextMeshProUGUI ScoreText;
+        public Text FinishText;
+        public Text ScoreText;
 
         public PlayerSlingshotInput playerInput;
 
