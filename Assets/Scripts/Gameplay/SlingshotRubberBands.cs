@@ -4,6 +4,7 @@
 public sealed class SlingshotRubberBands : MonoBehaviour 
 {
     [Min(0f)] public float maxStretching = 2f;
+    public Transform paradinha;
 
     [SerializeField] private LineRenderer leftLine;
     [SerializeField] private LineRenderer rightLine;
@@ -78,6 +79,8 @@ public sealed class SlingshotRubberBands : MonoBehaviour
 
         positions[LINE_POS_ORIGIN_INDEX] = rightLine.transform.position;
         rightLine.SetPositions(positions);
+
+        paradinha.position = position;
     }
 
     private void PlaceRubberBands()

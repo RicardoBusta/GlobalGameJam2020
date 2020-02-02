@@ -6,12 +6,12 @@
 public sealed class Slingshot : MonoBehaviour 
 {
     [Min(0f)] public float launchMultiplier = 4f;
-    public Transform paradinha;
 
     public bool enabled;
 
     [SerializeField] private SlingshotLaunchArc launcher;
     [SerializeField] private SlingshotRubberBands rubberBands;
+    [SerializeField] private ParticleSystem particleSystem;
 
     private AmmoStock stock;
     private Ammo currentMunnition;
@@ -33,12 +33,12 @@ public sealed class Slingshot : MonoBehaviour
     public void DragAmmo(Vector3 dragPos)
     {
         if (!CanDrag()) return;
+        particleSystem.Stop(true, ParticleSystemStopBehavior.StopEmitting);
         
         dragPos = rubberBands.Dragging(dragPos);
 
         float launchForce = GetFireForce();
         launcher.Draw(dragPos, rubberBands.LaunchDirection, launchForce);
-        paradinha.position = dragPos;
         currentMunnition?.Dragging(dragPos, rubberBands.LaunchDirection);
         ui?.SetStretching(rubberBands.Stretching);
     }
@@ -48,6 +48,7 @@ public sealed class Slingshot : MonoBehaviour
         float launchForce = GetFireForce();
         FireCurrentAmmo(launchForce);
         GetNextAmmo();
+        particleSystem.Play();
     }
 
     public void FireCurrentAmmo(float force)

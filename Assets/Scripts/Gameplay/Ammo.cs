@@ -4,11 +4,13 @@ using UnityEngine;
 
 [DisallowMultipleComponent]
 [RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(AudioSource))]
 [RequireComponent(typeof(TrailRenderer))]
 public sealed class Ammo : MonoBehaviour
 {
     [SerializeField] private Rigidbody rigidBody;
     [SerializeField] private TrailRenderer trail;
+    [SerializeField] private AudioSource audioSource;
 
     public LayerMask SticksTo;
 
@@ -18,6 +20,7 @@ public sealed class Ammo : MonoBehaviour
     {
         trail = GetComponent<TrailRenderer>();
         rigidBody = GetComponent<Rigidbody>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Awake()
@@ -30,6 +33,7 @@ public sealed class Ammo : MonoBehaviour
         rigidBody.constraints = RigidbodyConstraints.FreezePositionZ;
         EnablePhysics();
         rigidBody.velocity = direction * force;
+        PlaySound();
     }
 
     public void Dragging(Vector3 position, Vector3 direction)
@@ -55,11 +59,16 @@ public sealed class Ammo : MonoBehaviour
     private void OnCollisionEnter(Collision other)
     {
         var otherLayer = other.gameObject.layer;
-        Debug.Log($"other: {otherLayer} mask: {SticksTo.value}");
         if (SticksTo.value == (SticksTo.value | (1 << otherLayer)))
         {
             StickEvent?.Invoke();
+            PlaySound();
             DisablePhysics();
         }
+    }
+
+    public void PlaySound()
+    {
+        audioSource.Play();
     }
 }
