@@ -5031,7 +5031,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   launchMultiplier: 4
-  enabled: 0
   launcher: {fileID: 1229117357144241191}
   rubberBands: {fileID: 1825185056356168238}
   particleSystem: {fileID: 7994440393384707954}
@@ -5048,6 +5047,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slingshot: {fileID: 617181875}
+  enabled: 0
 --- !u!1 &4889294440259965125
 GameObject:
   m_ObjectHideFlags: 0

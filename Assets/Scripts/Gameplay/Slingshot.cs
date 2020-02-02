@@ -6,9 +6,6 @@
 public sealed class Slingshot : MonoBehaviour 
 {
     [Min(0f)] public float launchMultiplier = 4f;
-
-    public bool enabled;
-
     [SerializeField] private SlingshotLaunchArc launcher;
     [SerializeField] private SlingshotRubberBands rubberBands;
     [SerializeField] private ParticleSystem particleSystem;

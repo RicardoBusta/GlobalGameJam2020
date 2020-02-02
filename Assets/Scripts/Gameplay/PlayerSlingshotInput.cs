@@ -7,6 +7,8 @@ public sealed class PlayerSlingshotInput : MonoBehaviour
     public Slingshot slingshot;
 
     private Camera levelCamera;
+    
+    public bool enabled;
 
     private void Reset()
     {
@@ -20,6 +22,7 @@ public sealed class PlayerSlingshotInput : MonoBehaviour
 
     private void OnMouseDrag()
     {
+        if (!enabled) return;
         Vector3 mousePos = Input.mousePosition;
         mousePos.z = Mathf.Abs(levelCamera.transform.position.z);
         Vector3 mouseWorldPos = levelCamera.ScreenToWorldPoint(mousePos);
@@ -29,6 +32,7 @@ public sealed class PlayerSlingshotInput : MonoBehaviour
 
     private void OnMouseUp()
     {
+        if (!enabled) return;
         slingshot.ReleaseAmmo();
     }
 }
