@@ -5,7 +5,6 @@ using UnityEngine;
 [DisallowMultipleComponent]
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(AudioSource))]
-[RequireComponent(typeof(TrailRenderer))]
 public sealed class Ammo : MonoBehaviour
 {
     [SerializeField] private Rigidbody rigidBody;
@@ -18,7 +17,7 @@ public sealed class Ammo : MonoBehaviour
 
     private void Reset()
     {
-        trail = GetComponent<TrailRenderer>();
+        trail = GetComponentInChildren<TrailRenderer>();
         rigidBody = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();
     }
@@ -58,11 +57,12 @@ public sealed class Ammo : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
+        PlaySound();
+
         var otherLayer = other.gameObject.layer;
         if (SticksTo.value == (SticksTo.value | (1 << otherLayer)))
         {
             StickEvent?.Invoke();
-            PlaySound();
             DisablePhysics();
         }
     }

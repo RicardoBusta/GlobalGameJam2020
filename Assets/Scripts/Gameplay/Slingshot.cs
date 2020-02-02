@@ -33,7 +33,7 @@ public sealed class Slingshot : MonoBehaviour
     public void DragAmmo(Vector3 dragPos)
     {
         if (!CanDrag()) return;
-        particleSystem.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+        particleSystem.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
         
         dragPos = rubberBands.Dragging(dragPos);
 
